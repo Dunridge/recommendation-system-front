@@ -1,38 +1,102 @@
-.App {
-  text-align: center;
+/*Styling the div */
+
+html {
+  background-color: #373976;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#root > div {
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#root > div > div:nth-child(1) {
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#root > div > div:nth-child(1) > div.rec-system-title {
+  height: 300px;
+  background-image: url("resources/bg-image-rs-cropped.jpg");
+  background-position: top left;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: start;
+
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#root > div > div:nth-child(1) > div.rec-system-title > h1 {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
 }
 
-.App-link {
-  color: #61dafb;
+#root > div > div:nth-child(1) > div.rec-system-title {
+  margin-top: 40px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#root > div > div.rec-system.rec-system-res {
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-bottom: 4%;
+}
+
+#start-button {
+  margin-left: 3%;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 40px;
+  margin-left: -23%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
+}
+
+#root > div > div:nth-child(1) > div.navbar > a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#root > div > div {
+  background-color: grey;
+}
+
+#root > div > div.rec-system.rec-system-res > h3 {
+  padding-top: 30px;
+  margin-top: 0px;
+}
+
+#root > div > div:nth-child(1) > div.description > div > table {
+  border: 1px solid black;
+}
+
+#root > div > div.rec-system.rec-system-res > div.lstm-model > div:nth-child(3) {
+  border: 1px solid black;
 }

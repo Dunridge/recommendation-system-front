@@ -60,7 +60,15 @@ function App() {
     return (
         <div>
             <div className="rec-system">
-                <h1>Recommender system</h1>
+                <div className="navbar">
+                    <a href="">Information</a>
+                    <a href="">Statistics</a>
+                    <a href="">Training</a>
+                    {/*TODO: add hooks */}
+                </div>
+                <div className="rec-system-title">
+                    <h1>Recommender system</h1>
+                </div>
                 <div className="description">
                     <h3>LSTM convolutions for sequence-based recommendations</h3>
                     <p>
@@ -152,13 +160,13 @@ function App() {
                         </select>
                         <button id="start-button">Run the model</button>
                     </div>
-                    <div contentEditable="true">
+                    <div>
                         <p> hello {hello.hello}</p>
                         <p> number {number.number} </p>
                         <p> result {results.results} </p>
                     </div>
                 </div>
-                {/*<TODO: this is wrong --> remake the entire logic of this >*/}
+                {/*<TODO: this is wrong --> remake the entire logic of this: just add the onDidMount hook >*/}
                 <div className="progress progress-bar">{useProgressBar('./scripts/initProgressBar.js')}</div>
                 <footer>&copy; made by M.P.</footer>
                 {/*<ScriptTag type={"text/javascript"} src={"scripts/initProgressBar.js"}/>*/}
