@@ -100,3 +100,43 @@ html {
 #root > div > div.rec-system.rec-system-res > div.lstm-model > div:nth-child(3) {
   border: 1px solid black;
 }
+
+#root > div > div.rec-system.rec-system-res > div.sc-AxjAm.iyGekt {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#start-button {
+  display: block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#root > div > div.rec-system.rec-system-res > div > div.run-model-controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#selector-models {
+  height: 35px;
+}
+
+#root > div > div.rec-system.rec-system-res > div > div.run-model-controls > div > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#output-section > p {
+  margin-left: 3%;
+}

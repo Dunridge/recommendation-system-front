@@ -1,11 +1,19 @@
 import React, {useEffect} from 'react';
 // import ScriptTag from 'react-script-tag';
-import useProgressBar from "./hooks/useProgressBar";
+// import useProgressBar from "./hooks/useProgressBar";
+import Recompose from 'recompose'
 
 //import logo from './logo.svg';
 import './App.css';
+import Particles from 'react-particles-js'
 // import {ProgressBar} from 'scripts/progressBar.js'
+// import ProgressBarComponent from './components/ProgressBarComponent';
+import ProgressBar from "./components/ProgressBar/index";
 
+// you can only use hooks in functional components so changing to a class component to access the state is not an option
+// --> just pass props to the function --> you can't, to use a progressBar, you'll have to
+// convert the functional component to a class component  and continue watching the tutorial
+// this is how you can use hooks in class components: https://stackoverflow.com/questions/53371356/how-can-i-use-react-hooks-in-react-classic-class-component#:~:text=According%20to%20the%20Hooks%2DFAQ,implementation%20detail%20of%20that%20component.
 function App() {
     const [hello, setHello] = React.useState({
         hello: "loading..."
@@ -19,8 +27,6 @@ function App() {
     const [results, setResults] = React.useState({ //TODO: continue working from here
         results: "loading..."
     });
-
-
 
     useEffect(() => {
         fetch('http://localhost:5000/',
@@ -61,16 +67,17 @@ function App() {
         <div>
             <div className="rec-system">
                 <div className="navbar">
-                    <a href="">Information</a>
-                    <a href="">Statistics</a>
-                    <a href="">Training</a>
-                    {/*TODO: add hooks */}
+                    <a href="#information">Information</a>
+                    <a href="#statistics">Statistics</a>
+                    <a href="#training">Training</a>
                 </div>
                 <div className="rec-system-title">
                     <h1>Recommender system</h1>
                 </div>
                 <div className="description">
-                    <h3>LSTM convolutions for sequence-based recommendations</h3>
+                    <a name="information">
+                        <h3>LSTM convolutions for sequence-based recommendations</h3>
+                    </a>
                     <p>
                         In this example of a recommender system we'll be using lstm
                         convolutions for sequence-based recommendations
@@ -86,7 +93,7 @@ function App() {
 
                         <table className="lstm-table">
                             <tr>
-                                <th>validation_mrr</th>
+                                <th><a name="statistics">validation_mrr</a></th>
                                 <th>test_mrr</th>
                                 <th>batch_size</th>
                                 <th>embedding_dim</th>
@@ -151,23 +158,32 @@ function App() {
                 </div>
             </div>
             <div className="rec-system rec-system-res">
-                <h3>Running the lstm recommendation system: </h3>
+                <h3><a name="training">Running the lstm recommendation system:</a></h3>
                 <div className="lstm-model">
                     <h3>Choose a model: </h3>
-                    <div className="run-moodel-controls">
-                        <select name="choosen-model" id="selector-models">
-                            <option value="lstm">LSTM</option>
-                        </select>
-                        <button id="start-button">Run the model</button>
+                    <div className="run-model-controls">
+                        <div className="run-model-controls-container">
+                            <div className="run-model-controls-container-flex">
+                                <select name="chosen-model" id="selector-models">
+                                    <option value="lstm">LSTM</option>
+                                </select>
+                            </div>
+                            {/*TODO: create another component for the button that will start the app*/}
+                            <button id="start-button">Run the model</button>
+                        </div>
                     </div>
-                    <div>
+                    <div id="output-section">
                         <p> hello {hello.hello}</p>
                         <p> number {number.number} </p>
                         <p> result {results.results} </p>
                     </div>
                 </div>
-                {/*<TODO: this is wrong --> remake the entire logic of this: just add the onDidMount hook >*/}
-                <div className="progress progress-bar">{useProgressBar('./scripts/initProgressBar.js')}</div>
+                {/*<div className="progress progress-bar">{useProgressBar('./scripts/initProgressBar.js')}</div>*/}
+                {/*this one works*/}
+                {/*percentage={}*/}
+                {/*It's too hard for you to implement */}
+                {/*<ProgressBar/>*/}
+                {/*<ProgressBarComponent></ProgressBarComponent>*/}
                 <footer>&copy; made by M.P.</footer>
                 {/*<ScriptTag type={"text/javascript"} src={"scripts/initProgressBar.js"}/>*/}
             </div>
