@@ -10,10 +10,6 @@ import Particles from 'react-particles-js'
 // import ProgressBarComponent from './components/ProgressBarComponent';
 import ProgressBar from "./components/ProgressBar/index";
 
-// you can only use hooks in functional components so changing to a class component to access the state is not an option
-// --> just pass props to the function --> you can't, to use a progressBar, you'll have to
-// convert the functional component to a class component  and continue watching the tutorial
-// this is how you can use hooks in class components: https://stackoverflow.com/questions/53371356/how-can-i-use-react-hooks-in-react-classic-class-component#:~:text=According%20to%20the%20Hooks%2DFAQ,implementation%20detail%20of%20that%20component.
 function App() {
     const [hello, setHello] = React.useState({
         hello: "loading..."
@@ -25,7 +21,8 @@ function App() {
     });
 
     const [results, setResults] = React.useState({ //TODO: continue working from here
-        results: "loading..."
+        results: []
+        // was results: "loading..."
     });
 
     useEffect(() => {
@@ -60,8 +57,9 @@ function App() {
                 }
             })
             .then((response) => response.json())
-            .then(json => setResults(json))
+            .then(json => setResults(json)) //a JSON is passed here --> //was .then(json => setResults(json))
     }, []);
+
 
     return (
         <div>
@@ -168,14 +166,13 @@ function App() {
                                     <option value="lstm">LSTM</option>
                                 </select>
                             </div>
-                            {/*TODO: create another component for the button that will start the app*/}
                             <button id="start-button">Run the model</button>
                         </div>
                     </div>
                     <div id="output-section">
-                        <p> hello {hello.hello}</p>
-                        <p> number {number.number} </p>
-                        <p> result {results.results} </p>
+                        {/*<p> hello {hello.hello}</p>*/}
+                        {/*<p> number {number.number} </p>*/}
+                        <p id="result"> result {results.results} </p>
                     </div>
                 </div>
                 {/*<div className="progress progress-bar">{useProgressBar('./scripts/initProgressBar.js')}</div>*/}
